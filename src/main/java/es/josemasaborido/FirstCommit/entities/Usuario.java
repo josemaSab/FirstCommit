@@ -1,10 +1,13 @@
 package es.josemasaborido.FirstCommit.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Proyecto First Commit
  * Clase usuario. Se define la entidad usuario
+ *
  * @author josema
  * @version 1.0
  */
@@ -20,24 +23,28 @@ public class Usuario {
     private String password;
     private String email;
 
-    //TODO la relacion 1- N con la entidad Alumnos
-
+    //mappedBy hace referencia al nombre del atributo Usuario dado en la clase Alumno
+    @OneToMany(mappedBy = "usuario")
+    private List<Alumno> alumnos;
 
 
     //CONSTRUCTORES
 
     /**
      * Consutructor con todos los parametros
-     * @param idUsuario id del usuario es clave primaria
+     *
+     * @param idUsuario     id del usuario es clave primaria
      * @param nombreUsuario nombre del usuario
-     * @param password password del usuario
-     * @param email del usuario
+     * @param password      password del usuario
+     * @param email         del usuario
      */
     public Usuario(Long idUsuario, String nombreUsuario, String password, String email) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.email = email;
+        //inicializamos el Listde la relacion @OnetoMany
+        alumnos = new ArrayList<>();
     }
 
 
@@ -74,5 +81,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(List<Alumno> alumnos) {
+        this.alumnos = alumnos;
     }
 }
