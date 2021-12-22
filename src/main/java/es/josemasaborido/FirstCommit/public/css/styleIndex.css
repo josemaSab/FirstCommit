@@ -1,0 +1,237 @@
+/* Importamos la fuente */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+    --verde: #32d5a4;
+    --negro: #121625;
+    --blanco: #f8f8f9;
+    --gris: #a5a8b3;
+  }
+
+  *{
+      font-family: "Raleway", sans-serif;
+      color: var(--negro);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  body{
+
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* PARTE IZQUIERDA */
+
+  .contenedor{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .contenedorSec{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+      max-width: 30%;
+      height: auto;
+
+  }
+
+  /* DENTRO DEL CONTENEDOR SECUNDARIO */
+
+  .contenedorTitulo{
+      display: flex;
+      flex-direction: row;
+      width: 70%;
+      margin-bottom: 45px;
+      margin-top: 40%;
+  }
+
+  .tituloH1{
+      color: var(--negro);
+      font-size: 24px;
+      font-weight: normal;
+  }
+
+  .tituloH2{
+      margin-left: 5px;
+      color: var(--verde);
+      font-size: 24px;
+      font-weight: bolder;
+  }
+
+  .formIndex{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      
+  }
+
+  /* DENTRO DEL FORMULARIO*/
+
+  .formulario{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      font-size: 14px;
+  }
+
+  .renglonForm{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 30px 5px 5px 5px;
+  }
+
+  .labelForm{
+      font-weight: 700;
+      font-style: normal;
+      font-size: 14px;
+  }
+
+  .textboxForm{
+      color: var(--gris);
+      background-color: var(--blanco);
+      border: 0px solid var(--gris);
+      border-radius: 8px;
+      height: 40px;
+      padding: 12px 15px;
+      margin-top: 12px;
+  }
+
+  .renglonFormChek{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 30px 5px 5px 5px;
+  }
+
+  .labelFormRemarcado{
+      text-align: right;
+      color: var(--verde);
+      text-decoration: none;
+      font-weight: bold;
+      
+  }
+
+  .linkPassword:link, .linkPassword:visited, .linkPassword:active {
+    text-decoration:none;
+  }
+
+  .contenedorCheckRecuerdame{
+      width: 40%;
+      text-align: left;
+  }
+
+  .checkboxForm{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+
+  .contenedorRecuperapwd{
+      width: 60%;
+      margin-right: 0px;
+      text-align: right;
+  }
+
+  .botonForm{
+      max-width: 100%;
+      height: 40px;
+      color: var(--blanco);
+      background-color: var(--verde);
+      border-radius: 8px;
+      border: 0px;
+      padding: 5px 14px 5px 10px;
+      font-size: 15px;
+      font-weight: 700;
+
+  }
+
+  /* FOOTER */
+
+  .footerIndex{
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      margin-bottom: 20%;
+      margin-top: 30%;
+  }
+
+  .textoFooter{
+    color: var(--gris);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .linkFooter:link, .linkFooter:visited, .linkFooter:active {
+    color: var(--gris);
+  }
+
+/* PARTE DERECHA */
+
+  .contenedorImagen{
+      display: flex;
+      width: 70vw;
+      max-width: 70vw;
+      height: 100vh;
+      
+  }
+
+.imagenIndex{
+    position: relative;
+    width: 70%;
+    height: 100vh;
+    background-image: url("../images/fondoindex.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+}
+
+
+/*--------------- RESPONSIVE ----------------*/
+
+@media only screen and (max-width: 1422px){
+
+    .renglonFormChek{
+        flex-direction: column;
+    }
+
+    .contenedorCheckRecuerdame{
+        width: 100%;
+    }
+
+    .contenedorRecuperapwd{
+        width: 100%;
+        text-align: left;
+        margin-top: 12px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 1250px){
+    
+    .imagenIndex{
+        width: 50%;
+    }
+    .contenedorSec{
+        width: 50%;
+        max-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    
+    .imagenIndex{
+        display: none;
+    }
+    .contenedorSec{
+        width: 100%;
+        max-width: 100%;
+    }
+}
