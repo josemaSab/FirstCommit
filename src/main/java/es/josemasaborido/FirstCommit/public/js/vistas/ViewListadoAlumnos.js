@@ -1,7 +1,6 @@
-import Alumno from "./models/Alumno";
-import JsonService from "./services/JsonService";
-import AlumnoRepository from "./repositories/AlumnoRepository";
-import { listadoAlumnosJSON } from "./almacenamiento/json";
+import { JsonService } from "./services/JsonService.js";
+import { AlumnoRepository } from "./repositories/AlumnoRepository.js";
+import { listadoAlumnosJSON } from "./almacenamiento/json.js";
 
 /*
     Proyecto FirstCommit
@@ -26,9 +25,13 @@ export default class ViewListadoAlumnos{
         y el tipo de almacenamiento
     */
     constructor(){
+        console.log("Estamos en el constrcutor de View");
         this.#tipoAlmacenamiento = listadoAlumnosJSON;
-        this.#jsonService = new JsonService(this.#listadoAlumnosJSON);
-        this.#alumnoRepository = new AlumnoRepository(this.#jsonService)
+        console.log(this.getTipoAlmacenamiento);
+        this.#jsonService = new JsonService(this.getTipoAlmacenamiento);
+        console.log(this.getJsonService);
+        this.#alumnoRepository = new AlumnoRepository(this.getJsonService)
+        console.log(this.getAlumnoRepository);
     }
 
     //METODOS

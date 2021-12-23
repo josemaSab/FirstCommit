@@ -1,4 +1,4 @@
-import Alumno from "../models/Alumno";
+import { Alumno } from "../models/Alumno.js"
 /*
     Proyecto FirstCommit
 

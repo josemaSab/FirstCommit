@@ -1,4 +1,4 @@
-import ViewListadoAlumnos from "./vistas/ViewListadoAlumnos";
+import { ViewListadoAlumnos } from "./vistas/ViewListadoAlumnos.js";
 
 /*
     Proyecto FirstCommit
@@ -9,7 +9,11 @@ import ViewListadoAlumnos from "./vistas/ViewListadoAlumnos";
     version: 1.0
  */
 
-const viewListadoAlumnos = new ViewListadoAlumnos();
-viewListadoAlumnos.componerTabla(); 
+
+window.onload = function(){
+    viewListadoAlumnos = new ViewListadoAlumnos();
+    viewListadoAlumnos.componerTabla();
+}
+console.log("Carga exitosa");
 
 
