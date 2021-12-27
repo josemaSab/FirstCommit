@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleListadoAlumnos.css">
     <title>Listado de alumnos |OpenBootcamp</title>
 </head>
 <body>
     <div class="contenedorPrincipal">
         <div class="superior">
+            <div class="supTitulo"></div>
+            <div class="supCuenta"></div>
 
         </div>
         <div class="zonaNavTablas">
-            <div class="busquedaAlumnos"></div>
-            <div class="addAlumnos"></div>
+            <div class="nav">
+                <div class="busquedaAlumnos"></div>
+                <div class="addAlumnos"></div>
+            </div>
             <div class="tablas">
                 <table id="tablaAlumnos">
                     <thead>
                         <tr>
-                            <th class="thCabeceras">NOMBRE</th>
-                            <th class="thCabeceras">CIUDAD</th>
-                            <th class="thCabeceras">PAIS</th>
-                            <th class="thCabeceras">TELEFONO</th>
-                            <th class="thCabeceras">CORREO ELECTRONICO</th>
-                            <th class="thCabeceras">ETIQUETAS</th>
+                            <th class="thCabeceras"><div class="dentroCabeceras">NOMBRE<button class="filtroLink" onclick="filtrarNombre();"><p class="filtro" id="filtroNombre"></p></button></div></th>
+                            <th class="thCabeceras"><div class="dentroCabeceras">CIUDAD<button class="filtroLink" onclick="filtrarCiudad();"><p class="filtro" id="filtroCiudad"></p></button></div></th>
+                            <th class="thCabeceras"><div class="dentroCabeceras">PAIS<button class="filtroLink" onclick="fitltrarPais();"><p class="filtro" id="filtroPais"></p></button></div></th>
+                            <th class="thCabeceras"><div class="dentroCabeceras">TELEFONO<button class="filtroLink" onclick="filtrarTelefono();"><p class="filtro" id="filtroTelefono"></p></button></div></th>
+                            <th class="thCabeceras"><div class="dentroCabeceras">CORREO ELECTRONICO<button class="filtroLink" onclick="filtrarEmail();"><p class="filtro" id="filtroEmail"></p></button></div></th>
+                            <th class="thCabeceras"><div class="dentroCabeceras">ETIQUETAS<button class="filtroLink" onclick="filtrarEtiquetas();"><p class="filtro" id="filtroEtiquetas"></p></button></div></th>
                         </tr>
                     </thead>
                     <tbody id="datos"></tbody>
