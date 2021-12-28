@@ -458,14 +458,14 @@ class FiltroOrdenarTabla{
     }
 
     /**
-     * Metodoq ue ordena la lista por el campo nombre
+     * METODOS QUE ORDENAN EL ARRAY POR EL CAMPO SELECCIONADO
      */
     sortArrayNombre(a, b){
         if(a.nombre > b.nombre){return 1}
         if(a.nombre < b.nombre){return -1}
         return 0;
     }
-    
+
     sortArrayCiudad(a, b){
         if(a.ciudad > b.ciudad){return 1}
         if(a.ciudad < b.ciudad){return -1}
@@ -492,7 +492,10 @@ class FiltroOrdenarTabla{
         return 0;
     }
     
-
+    /**
+     *Metodo que dibuja la tabla a partir de un lisado pasado por parametros
+     * @param {*} listado de alumnos pasado por parametros
+     */
     componerTabla(listado){
         //console.log("Dentro de componer Tabla");
          //Obtenemos el listado de Alumnos
@@ -550,36 +553,46 @@ class FiltroOrdenarTabla{
 }
 
 /*EJECUCION DEL PROGRAMA*/
+
 //Creamos los filtros
 const filtroNombre = new FiltroOrdenarTabla("filtroNombre", listadoAlumnosJSON);
-const jsonService = new JsonService(listadoAlumnosJSON);
-const view = new ViewListadoAlumnos(listadoAlumnosJSON, jsonService);
+const filtroCiudad = new FiltroOrdenarTabla("filtroCiudad", listadoAlumnosJSON);
+const filtroPais = new FiltroOrdenarTabla("filtroPais", listadoAlumnosJSON);
+const filtroTelefono = new FiltroOrdenarTabla("filtroTelefono", listadoAlumnosJSON);
+const filtroEmail = new FiltroOrdenarTabla("filtroEmail", listadoAlumnosJSON);
+const filtroEtiquetas = new FiltroOrdenarTabla("filtroEtiquetas", listadoAlumnosJSON);
 
+// Funcion que llama al metodo fitrar por el campo Seleccionado
 function filtrarNombre(){
     filtroNombre.ordenar();
 }
-const filtroCiudad = new FiltroOrdenarTabla("filtroCiudad", listadoAlumnosJSON);
+
 function filtrarCiudad(){
     filtroCiudad.ordenar();
 }
-const filtroPais = new FiltroOrdenarTabla("filtroPais", listadoAlumnosJSON);
+
 function filtrarPais(){
     filtroPais.ordenar();
 }
-const filtroTelefono = new FiltroOrdenarTabla("filtroTelefono", listadoAlumnosJSON);
+
 function filtrarTelefono(){
     filtroTelefono.ordenar();
 }
-const filtroEmail = new FiltroOrdenarTabla("filtroEmail", listadoAlumnosJSON);
+
 function filtrarEmail(){
     filtroEmail.ordenar();
 }
-const filtroEtiquetas = new FiltroOrdenarTabla("filtroEtiquetas", listadoAlumnosJSON);
+
 function filtrarEtiquetas(){
     filtroEtiquetas.ordenar();
 }
 
-console.log(view.obtenerListado());
+//Instanciamos los servicios y las vistas
+const jsonService = new JsonService(listadoAlumnosJSON);
+const view = new ViewListadoAlumnos(listadoAlumnosJSON, jsonService);
 
+//Mostramos por consola el listado de alumnos
+console.log(view.obtenerListado());
+//Procedemos a la carga de la pagina
 window.onload= view.componerTabla();
     
