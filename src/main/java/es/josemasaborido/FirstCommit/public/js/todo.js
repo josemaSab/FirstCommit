@@ -269,11 +269,11 @@ class ViewListadoAlumnos{
      * @param {*} jsonService objeto del servicio jsonService
      */
     constructor(listadoAlumnosJSON, jsonService){
-        console.log("Estamos en el constrcutor de View");
+        //console.log("Estamos en el constrcutor de View");
         this.#tipoAlmacenamiento = listadoAlumnosJSON;
-        console.log(this.getTipoAlmacenamiento);
+        //console.log(this.getTipoAlmacenamiento);
         this.#jsonService = jsonService;
-        console.log(this.getJsonService);
+        //console.log(this.getJsonService);
     }
 
     //METODOS
@@ -363,93 +363,164 @@ class FiltroOrdenarTabla{
      * Metodo que ordena de forma ascendente o descendente el listado de alumnos por el tipo de filtro selccionado
      */
     ordenar(){
-        console.log("Estamos dentro de ordenar");
+        //console.log("Estamos dentro de ordenar");
         //asignamos el elemento pasado por parametro a una constante
         const elemento = document.getElementById(this.#filtroElementID);
         elemento.onclick = this.aumentarContador();
-        console.log(this.getContador) //Si se hace click en el elemento aumenta el contador
+        //console.log(this.getContador) //Si se hace click en el elemento aumenta el contador
         if(this.#contador > 0){//si el elemento se ha pulsado al menos una vez
             if(this.#contador%2 == 0){
-                console.log("Estamos eligiendo orden descendente"); //si el valor del contador es par ordena de forma descendente
+                //console.log("Estamos eligiendo orden descendente"); //si el valor del contador es par ordena de forma descendente
                 this.ordenDescendente(this.#filtroElementID);
 
             }else {//Si el valor del contador es impar ordena de forma ascendente
-                console.log("Estamos eligiendo orden ascendente");
+                //console.log("Estamos eligiendo orden ascendente");
                 this.ordenAscendente(this.#filtroElementID);
             }
         }
     }
 
     ordenAscendente(filtroElementID){
-        console.log("Estamos dentro de orden Ascendente");
-        console.log(filtroElementID);
+        //console.log("Estamos dentro de orden Ascendente");
+        //console.log(filtroElementID);
         //Creamos un array
         let lista = [];
         //Asignamos el listado de alumnos
         switch(filtroElementID){
             case "filtroNombre":
-                console.log("Estamos dentro de switch ASCENDENTE filtroNombre");
                 lista = this.#tipoAlmacenamiento.sort(this.sortArrayNombre);
-                console.log(lista);
+                this.componerTabla(lista);
                 break;
             case "filtroCiudad":
-                lista.sort((a, b) => (a.ciudad > b.ciudad)? 1 : -1);
+                lista = this.#tipoAlmacenamiento.sort(this.sortArrayCiudad);
+                this.componerTabla(lista);
                 break;
             case "filtroPais":
-                lista.sort((a, b) => (a.pais > b.pais)? 1 : -1);
+                lista = this.#tipoAlmacenamiento.sort(this.sortArrayPais);
+                this.componerTabla(lista);
                 break;
             case "filtroTelefono":
-                lista.sort((a, b) => (a.telefono > b.telefono)? 1 : -1);
+                lista = this.#tipoAlmacenamiento.sort(this.sortArrayTelefono);
+                this.componerTabla(lista);
                 break;
             case "filtroEmail":
-                lista.sort((a, b) => (a.email > b.email)? 1 : -1);
+                lista = this.#tipoAlmacenamiento.sort(this.sortArrayEmail);
+                this.componerTabla(lista);
                 break;
             case "filtroEtiquetas":
-                lista.sort((a, b) => (a.etiquetas > b.etiquetas)? 1 : -1);
+                lista = this.#tipoAlmacenamiento.sort(this.sortArrayEtiquetas);
+                this.componerTabla(lista);
                 break;
         }
 
     }
 
     ordenDescendente(filtroElementID){
-        console.log("Estamos dentro de orden Descendente");
+        //console.log("Estamos dentro de orden Descendente");
         //Creamos un array
         let lista = [];
         //Asignamos el listado de alumnos
         lista = this.#tipoAlmacenamiento;
         switch(filtroElementID){
             case "filtroNombre":
-                console.log("Estamos dentro de switch DESCENDENTE filtroNombre");
                 lista = this.#tipoAlmacenamiento.reverse(this.sortArrayNombre);
-                console.log(lista);
+                this.componerTabla(lista);
                 break;
             case "filtroCiudad":
-                lista.sort((a, b) => (a.ciudad > b.ciudad)? -1 : 1);
+                lista = this.#tipoAlmacenamiento.reverse(this.sortArrayCiudad);
+                this.componerTabla(lista);
                 break;
             case "filtroPais":
-                lista.sort((a, b) => (a.pais > b.pais)? -1 : 1);
+                lista = this.#tipoAlmacenamiento.reverse(this.sortArrayPais);
+                this.componerTabla(lista);
                 break;
             case "filtroTelefono":
-                lista.sort((a, b) => (a.telefono > b.telefono)? -1 : 1);
+                lista = this.#tipoAlmacenamiento.reverse(this.sortArrayTelefono);
+                this.componerTabla(lista);
                 break;
             case "filtroEmail":
-                lista.sort((a, b) => (a.email > b.email)? -1 : 1);
+                lista = this.#tipoAlmacenamiento.reverse(this.sortArrayEmail);
+                this.componerTabla(lista);
                 break;
             case "filtroEtiquetas":
-                lista.sort((a, b) => (a.etiquetas > b.etiquetas)? -1 : 1);
+                lista = this.#tipoAlmacenamiento.reverse(this.sortArrayEtiquetas);
+                this.componerTabla(lista);
                 break;
         }
 
     }
-
+    /**
+     * Metodo que aumenta en 1 el contador. Se realzia cuando se hace click
+     * en alguno de los filtros
+     */
     aumentarContador(){
         this.setContador = this.#contador + 1;
     }
 
+    /**
+     * Metodoq ue ordena la lista por el campo nombre
+     */
     sortArrayNombre(a, b){
         if(a.nombre > b.nombre){return 1}
         if(a.nombre < b.nombre){return -1}
         return 0;
+    }
+    
+    sortArrayCiudad(a, b){
+        if(a.ciudad > b.ciudad){return 1}
+        if(a.ciudad < b.ciudad){return -1}
+        return 0;
+    }
+    sortArrayPais(a, b){
+        if(a.pais > b.pais){return 1}
+        if(a.pais < b.pais){return -1}
+        return 0;
+    }
+    sortArrayTelefono(a, b){
+        if(a.telefono > b.telefono){return 1}
+        if(a.telefono < b.telefono){return -1}
+        return 0;
+    }
+    sortArrayEmail(a, b){
+        if(a.email > b.email){return 1}
+        if(a.email < b.email){return -1}
+        return 0;
+    }
+    sortArrayEtiquetas(a, b){
+        if(a.etiquetas.name > b.etiquetas.name){return 1}
+        if(a.etiquetas.name < b.etiquetas.name){return -1}
+        return 0;
+    }
+    
+
+    componerTabla(listado){
+        //console.log("Dentro de componer Tabla");
+         //Obtenemos el listado de Alumnos
+         let listadoAlumnos = listado;
+         let tabla = "";
+         //Recorrecmos el array y vamos componiendo la tabla
+         for(let i in listadoAlumnos){
+             //console.log("Dentro del for");
+             console.log(listadoAlumnos[i].nombre);
+             tabla += `<tr>
+             <td class="datosAlumnos">${listadoAlumnos[i].nombre}</td>
+             <td class="datosAlumnos">${listadoAlumnos[i].ciudad}</td>
+             <td class="datosAlumnos">${listadoAlumnos[i].pais}</td>
+             <td class="datosAlumnos">${listadoAlumnos[i].telefono}</td>
+             <td class="datosAlumnos">${listadoAlumnos[i].email}</td>
+             <td class="datosAlumnos">${listadoAlumnos[i].etiquetas.map(
+                 //Con map creamos un nuevo array del array de etiquetas para procesarlas
+                 (etiquetas) => 
+                 //Componenmos la lista de etiquetas
+                 `<li class="tags" key="${etiquetas.id}">${etiquetas.name}</li>`
+                 //Unimos todo en una cadena de caracteres
+                 ).join("")
+             }</ul></td>
+             </tr>`;
+             //console.log("Intentando pinter la tabla");
+         }
+         //Pasamos al html al table body con clase datos la composicion
+         document.getElementById("datos").innerHTML = tabla;
     }
 
     //GETTER Y SETTER
@@ -485,7 +556,6 @@ const jsonService = new JsonService(listadoAlumnosJSON);
 const view = new ViewListadoAlumnos(listadoAlumnosJSON, jsonService);
 
 function filtrarNombre(){
-    console.log("Se ha activado filtrarNombre");
     filtroNombre.ordenar();
 }
 const filtroCiudad = new FiltroOrdenarTabla("filtroCiudad", listadoAlumnosJSON);
@@ -493,10 +563,21 @@ function filtrarCiudad(){
     filtroCiudad.ordenar();
 }
 const filtroPais = new FiltroOrdenarTabla("filtroPais", listadoAlumnosJSON);
+function filtrarPais(){
+    filtroPais.ordenar();
+}
 const filtroTelefono = new FiltroOrdenarTabla("filtroTelefono", listadoAlumnosJSON);
+function filtrarTelefono(){
+    filtroTelefono.ordenar();
+}
 const filtroEmail = new FiltroOrdenarTabla("filtroEmail", listadoAlumnosJSON);
+function filtrarEmail(){
+    filtroEmail.ordenar();
+}
 const filtroEtiquetas = new FiltroOrdenarTabla("filtroEtiquetas", listadoAlumnosJSON);
-
+function filtrarEtiquetas(){
+    filtroEtiquetas.ordenar();
+}
 
 console.log(view.obtenerListado());
 
