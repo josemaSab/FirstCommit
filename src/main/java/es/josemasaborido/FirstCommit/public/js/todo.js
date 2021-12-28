@@ -552,6 +552,13 @@ class FiltroOrdenarTabla{
     }
 }
 
+/**
+ * Clase que define el funcionamiento de la barra de busqueda
+ */
+class BarraBusqueda{
+
+}
+
 /*EJECUCION DEL PROGRAMA*/
 
 //Creamos los filtros

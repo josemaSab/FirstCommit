@@ -7,6 +7,7 @@
     --blanco: #f8f8f9;
     --gris: #a5a8b3;
     --grisfondo: #E5E5E5;
+    --bordesgris: #E6E6EA;
   }
 
   *{
@@ -89,7 +90,7 @@
       margin-left: 10%;
       width: 90%;
       background-color: var(--blanco);
-      border: 1px solid var(--gris);
+      border: 1px solid var(--bordesgris);
       border-radius: 15px;
   }
 
@@ -122,7 +123,7 @@
       color: var(--negro);
       text-align: left;
       padding: 8px 8px 8px 8px;
-      border-top: 1px solid var(--gris);
+      border-top: 1px solid var(--bordesgris);
   }
   .dentroCabeceras{
       display: flex;
