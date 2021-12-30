@@ -101,6 +101,7 @@ const listadoAlumnosJSON = [
             }
         ]
     }];
+
 /**
  * Clase que define un alumno
  */
@@ -187,6 +188,7 @@ class Alumno{
 
 
 }
+
 /**
  * Clase que define la gestion del los datos obtenidos a partir de un JSON
  */
@@ -249,8 +251,6 @@ class JsonService{
     }
 
 }
-
-
 
 /**
  * Clase que gestiona la generación de la tabla de alumnos
@@ -343,11 +343,13 @@ class ViewListadoAlumnos{
  */
 class FiltroOrdenarTabla{
     //ATRIBUTOS
+
     #filtroElementID;
     #tipoAlmacenamiento;
     #contador = 0; //Si es impar ordena ascendente y si es par
 
     //CONSTRUCTORES
+
     /**
      * 
      * @param {*} filtroElementID referencia del elemento ID del documento HTML
@@ -380,6 +382,10 @@ class FiltroOrdenarTabla{
         }
     }
 
+    /**
+     * Metodo que ordena de forma ascendente el listado
+     * @param {*} filtroElementID filtro que deseamos ordenar
+     */
     ordenAscendente(filtroElementID){
         //console.log("Estamos dentro de orden Ascendente");
         //console.log(filtroElementID);
@@ -414,7 +420,10 @@ class FiltroOrdenarTabla{
         }
 
     }
-
+    /**
+     * Metodo que ordena de forma descendente el listado
+     * @param {*} filtroElementID 
+     */
     ordenDescendente(filtroElementID){
         //console.log("Estamos dentro de orden Descendente");
         //Creamos un array
@@ -556,6 +565,49 @@ class FiltroOrdenarTabla{
  * Clase que define el funcionamiento de la barra de busqueda
  */
 class BarraBusqueda{
+    //ATRIBUTOS
+
+    #listado;
+
+    //CONSTRUCTORES 
+    /**
+     * Constructor con parametros
+     * @param {*} listado de alumnos
+     */
+    constructor(listado){
+        this.#listado = listado;
+    }
+
+    //METODOS
+    /**
+     * Metodo que busca una palabra clave en el listado de alumnos. Devulve un array como resultado con todas
+     * las coincidencias
+     * @param {*} palabra a buscar
+     * @returns array con todos los alumnos contengan la palabra clave
+     */
+    buscar(palabra){
+        let listaResultado;
+        if(this.#listado == null){
+            console.log("El listado tiene valor null. No se puede realizar la busqueda");
+        }else{
+            for(let alumno in this.#listado){
+                if(alumno.nombre.includes(palabra) || alumno.ciudad.includes(palabra) || alumno.email.includes(palabra)){
+                    listaResultado.push(alumno);
+                }
+            }
+        }
+        return listaResultado;
+    }
+
+    //GETTER Y SETTER
+
+    get getLIstado(){
+        return this.#listado;
+    }
+
+    set setListado(listado){
+        this.#listado = listado;
+    }
 
 }
 
@@ -568,6 +620,9 @@ const filtroPais = new FiltroOrdenarTabla("filtroPais", listadoAlumnosJSON);
 const filtroTelefono = new FiltroOrdenarTabla("filtroTelefono", listadoAlumnosJSON);
 const filtroEmail = new FiltroOrdenarTabla("filtroEmail", listadoAlumnosJSON);
 const filtroEtiquetas = new FiltroOrdenarTabla("filtroEtiquetas", listadoAlumnosJSON);
+
+//Intanciamos la barra busqueda
+const barraBusqueda = new BarraBusqueda(listadoAlumnosJSON);
 
 // Funcion que llama al metodo fitrar por el campo Seleccionado
 function filtrarNombre(){
@@ -597,6 +652,7 @@ function filtrarEtiquetas(){
 //Instanciamos los servicios y las vistas
 const jsonService = new JsonService(listadoAlumnosJSON);
 const view = new ViewListadoAlumnos(listadoAlumnosJSON, jsonService);
+
 
 //Mostramos por consola el listado de alumnos
 console.log(view.obtenerListado());
