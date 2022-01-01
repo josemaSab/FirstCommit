@@ -18,6 +18,10 @@ Para acceder a la página del listado de alumnos:
 
 https://firstcommit.josemasaborido.es/listaAlumnos.html
 
+Para acceder a la página de ficha del alumno:
+
+https://firstcommit.josemasaborido.es/fichaAlumno.html
+
 ## PARTE BACK
 
 Se repartirán en las diferentes carpetas de repositorios, servicios, entidades ,etc.
