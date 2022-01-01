@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleFichaAlumno.css">
+    <title>Ficha Alumno</title>
+</head>
+
+<body>
+    <div class="contenedorPrincipal">
+        <div class="contenedorSuperior">
+            <div class="navVolver">
+                <span class="iconVolver"></span>
+                <h2 class="volver">Volver</h2>
+            </div>
+            <div class="navCuenta">
+                <div class="contenedorCuenta">
+                    <span class="iconCuenta"></span>
+                    <h2 class="usuarioCuenta">Josema</h2>
+                </div>
+            </div>
+        </div>
+        <div class="contenedorInferior">
+            <div class="contenedorFicha">
+                <div class="fichaAlumno">
+                    <div class="tituloFoto">
+                        <div class="foto">
+                            <img src="./images/Josema.png" class="fotoAlumno"></span>
+                        </div>
+                        <div class="titulo">
+                            <h1 class="tituloNombre">Josema Saborido</h1>
+                            <div class="tituloResidencia">
+                                <span class="iconoResidencia"></span>
+                                <h2 class="datosResidencia">Cádiz</h2>
+                                <h2 class="datosResidencia">| España</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenedorFormulario">
+                        <div class="fila">
+                            <div class="filaCompleta">
+                                <label class="datosFormulario">Nombre y Apellidos</label>
+                                <input class="textboxFormulario" type="text" id="nobreCompleto" value="Josema Saborido">
+                            </div>
+                        </div>
+                        <div class="fila">
+                            <div class="filaMitad">
+                                <label class="datosFormulario">Nº Teléfono</label>
+                                <input class="textboxFormulario" type="text" id="telefono" value="678568253">
+                            </div>
+                            <div class="filaMitad">
+                                <label class="datosFormulario">Email</label>
+                                <input class="textboxFormulario" type="text" id="email"
+                                    value="j.saborido@josemasaborido.es">
+                            </div>
+                        </div>
+                        <div class="fila">
+                            <div class="filaMitad">
+                                <label class="datosFormulario">Pais</label>
+                                <input class="textboxFormulario" type="text" list="paises" id="pais">
+                                <datalist id="paises">
+                                    <option>España</option>
+                                    <option>Francia</option>
+                                    <option>Portugal</option>
+                                </datalist>
+                            </div>
+                            <div class="filaMitad">
+                                <label class="datosFormulario">Ciudad</label>
+                                <input class="textboxFormulario" type="text" list="ciudades" id="ciudad">
+                                <datalist id="ciudades">
+                                    <option>Cádiz</option>
+                                    <option>Málaga</option>
+                                    <option>Madrid</option>
+                                    <option>Sevilla</option>
+                                    <option>Barcelona</option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="fila">
+                            <div class="filaMitad">
+                                <label class="datosFormulario">Traslado</label>
+                                <input class="textboxFormulario" type="text" list="traslados" id="traslado">
+                                <datalist id="traslados">
+                                    <option>Si</option>
+                                    <option>No</option>
+                                </datalist>
+                            </div>
+                            <div class="filaMitad">
+                                <label class="datosFormulario">Presencialidad</label>
+                                <input class="textboxFormulario" type="text" list="tipoPresencialidad"
+                                    id="presencialidad">
+                                <datalist id="tipoPresencialidad">
+                                    <option>Remoto</option>
+                                    <option>Presencial</option>
+                                    <option>Híbrido</option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="filaColumna">
+                            <label class="datosFormulario">Presencialidad</label>
+                            <div class="filaBotones">
+                                <span class="iconSubirCV"></span><button class="btnSubirCV">Subir de nuevo</button>
+                                <button class="btnBorrar">Borrar</button><span class="iconBorrar"></span>
+                            </div>
+                        </div>
+                        <div class="fila">
+                            <div class="filaCompleta">
+                                <label class="datosFormulario">Etiquetas</label>
+                                <input class="textboxFormulario" type="text" list="etiquetas" id="etiqueta">
+                                <datalist id="etiquetas">
+                                    <option>HTML+CSS</option>
+                                    <option>JAVASCRIPT</option>
+                                    <option>JAVA</option>
+                                    <option>SPRING</option>
+                                    <option>REACT</option>
+                                    <option>HIBERNATE</option>
+
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="filaEtiquetas"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedorVisorPDF">
+                <embed class="visorPDF" src="./pdf/Josema.pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
