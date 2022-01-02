@@ -61,42 +61,46 @@
                             <div class="filaMitad">
                                 <label class="datosFormulario">Pais</label>
                                 <input class="textboxFormulario" type="text" list="paises" id="pais">
+                                <!--
                                 <datalist id="paises">
                                     <option>España</option>
                                     <option>Francia</option>
                                     <option>Portugal</option>
-                                </datalist>
+                                </datalist>-->
                             </div>
                             <div class="filaMitad">
                                 <label class="datosFormulario">Ciudad</label>
                                 <input class="textboxFormulario" type="text" list="ciudades" id="ciudad">
+                               <!--
                                 <datalist id="ciudades">
                                     <option>Cádiz</option>
                                     <option>Málaga</option>
                                     <option>Madrid</option>
                                     <option>Sevilla</option>
                                     <option>Barcelona</option>
-                                </datalist>
+                                </datalist>-->
                             </div>
                         </div>
                         <div class="fila">
                             <div class="filaMitad">
                                 <label class="datosFormulario">Traslado</label>
                                 <input class="textboxFormulario" type="text" list="traslados" id="traslado">
+                                <!--
                                 <datalist id="traslados">
                                     <option>Si</option>
                                     <option>No</option>
-                                </datalist>
+                                </datalist>-->
                             </div>
                             <div class="filaMitad">
                                 <label class="datosFormulario">Presencialidad</label>
                                 <input class="textboxFormulario" type="text" list="tipoPresencialidad"
                                     id="presencialidad">
-                                <datalist id="tipoPresencialidad">
+                                <!--
+                                    <datalist id="tipoPresencialidad">
                                     <option>Remoto</option>
                                     <option>Presencial</option>
                                     <option>Híbrido</option>
-                                </datalist>
+                                </datalist>-->
                             </div>
                         </div>
                         <div class="filaColumna">
@@ -110,6 +114,7 @@
                             <div class="filaCompleta">
                                 <label class="datosFormulario">Etiquetas</label>
                                 <input class="textboxFormulario" type="text" list="etiquetas" id="etiqueta">
+                                <!--
                                 <datalist id="etiquetas">
                                     <option>HTML+CSS</option>
                                     <option>JAVASCRIPT</option>
@@ -118,10 +123,12 @@
                                     <option>REACT</option>
                                     <option>HIBERNATE</option>
 
-                                </datalist>
+                                </datalist>-->
                             </div>
                         </div>
-                        <div class="filaEtiquetas"></div>
+                        <div class="filaEtiquetas" id="etiquetaSeleccionada">
+                            <!--AQUI SE COMPONDRA EL LISTADOD DE ETIQUETAS-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,9 +136,8 @@
                 <embed class="visorPDF" src="./pdf/Josema.pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf">
             </div>
         </div>
-
     </div>
-
+    <script src="/js/todoFicha.js"></script>
 </body>
 
 </html>

@@ -269,6 +269,39 @@
         padding-right: 10px;
     }
 
+    .filaEtiquetas{
+        display: flex;
+        margin-top: 5px;
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+        align-items: center;
+    }
+
+    .itemEtiqueta{
+        display: flex;
+        background-color: var(--bordesgris);
+        border: 1px solid var(--bordesgris);
+        border-radius: 8px;
+        color: var(--negro);
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: 25px;
+        height: 25px;
+        padding-left: 10px;
+        padding-right: 30px;
+        align-items: center;
+    }
+
+    .eliminaEtiqueta{
+        background-color: var(--bordesgris);
+        border: 0px;
+        background-image: url(../images/delete.svg);
+        height: 10px;
+        width: 10px;
+        margin-left: -25px;
+    }
+
 
   /*Zona Visor PDF*/
 
