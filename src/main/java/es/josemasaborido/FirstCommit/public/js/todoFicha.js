@@ -73,9 +73,6 @@ class ComboBox {
             `;
         }
         opciones += `</datalist>`;
-
-        console.log(opciones);
-        console.log(this.getIdCombo);
         document.getElementById("" + this.#idCombo + "").innerHTML = opciones;
     }
 
@@ -132,7 +129,7 @@ class EtiquetasAsignadas {
      * @returns true si existe y false si no existe en el array
      */
     existeEtiqueta(etiqueta) {
-        if (this.#listaEtiquetas.find(etiqueta)) {
+        if (this.#listaEtiquetas.indexOf(etiqueta) != -1) {
             return true;
         }
         return false;
@@ -148,28 +145,20 @@ class EtiquetasAsignadas {
                 console.log("La etiqueta ya existe en la lista");
             } else {
                 this.#listaEtiquetas.push(etiqueta);
-                console.log(this.#listaEtiquetas);
                 this.componerEtiquetas();
             }
         }else{
             this.#listaEtiquetas.push(etiqueta);
-            console.log(this.#listaEtiquetas);
             this.componerEtiquetas();
         }
-        console.log(this.#listaEtiquetas);
-        
     }
     /**
      * Metodo que elimina una etiqueta del array
      * @param {*} etiqueta passada por parametro
      */
-    borrarEtiqueta(etiqueta) {
-        if (this.existeEtiqueta(etiqueta)) {
-            this.#listaEtiquetas.slice(this.#listaEtiquetas.indexOf(etiqueta), 1);
-        } else {
-            console.log("No se puede eliminar una etiqueta que no existe");
-        }
-        this.componerEtiquetas();
+    borrarEtiqueta(indexEtiqueta) {
+        this.#listaEtiquetas.splice(indexEtiqueta, 1);
+        this.componerEtiquetas(); 
     }
 
     /**Metodo que compone visualmente la parte de las etiquetas
@@ -177,24 +166,25 @@ class EtiquetasAsignadas {
      */
     componerEtiquetas() {
         let etiquetas = "";
+
         for (let i in this.#listaEtiquetas) {
             etiquetas += `
-            <label class="itemEtiqueta">${this.#listaEtiquetas[i]}</label><button class="eliminaEtiqueta" onclick="quitarEtiqueta(${this.#listaEtiquetas[i]});"></button>
+            <label class="itemEtiqueta">${this.#listaEtiquetas[i]}</label><button class="eliminaEtiqueta" onclick="quitarEtiqueta(${[i]});"></button>
             `;
         }
         document.getElementById("etiquetaSeleccionada").innerHTML = etiquetas;
     }
-//TODO queda terminar el metodo listerner para que le de funcionalidad a las etiquetas
-    listenerEtiquetas() {
-        var resultado;
-        let getValue;
-        getValue = document.getElementById("etiqueta")
-        getValue.addEventListener('input', function () {
-            resultado = this.value;
-            console.log("Opcion seleccionada:" + resultado);
-            
-        });
-        this.addEtiqueta(resultado);
+
+    /**
+     * Metodoque controla el cambio del data list para agregar la etiqueta
+     * @param {*} valorEtiqueta nombre de la etiqueta pasada por parametro
+     */
+    listenerEtiquetas(valorEtiqueta) {
+        if(typeof valorEtiqueta != 'undefined'){
+            this.addEtiqueta(valorEtiqueta);   
+        }else{
+            console.log("Etiqueta vacia");
+        }
     }
 
     //GETTER Y SETTER
@@ -221,6 +211,7 @@ const etiquetasAsignadas = new EtiquetasAsignadas();
 
 
 /* CARGA DE LA APLICACION */
+
 function cargaCombo() {
     cbmCiudades.cargarOpciones();
     cbmPaises.cargarOpciones();
@@ -234,6 +225,9 @@ function quitarEtiqueta(indexEtiqueta) {
     etiquetasAsignadas.borrarEtiqueta(indexEtiqueta);
 }
 
+function elegirEtiqueta(valorEtiqueta){
+    etiquetasAsignadas.listenerEtiquetas(valorEtiqueta);
+}
 
 window.onload = function () {
     cargaCombo();
