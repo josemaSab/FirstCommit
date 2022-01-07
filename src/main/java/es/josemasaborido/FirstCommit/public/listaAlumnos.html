@@ -10,13 +10,8 @@
 <body>
     <div class="contenedorPrincipal">
         <div class="superior">
-            <div class="supTitulo">
-                <h1 class="tituloH1">OpenBootCamp</h1>
-                <h2 class="tituloH2">|Alumnos</h2>
-            </div>
-            <div class="supCuenta">
-
-            </div>
+            <div class="supTitulo"></div>
+            <div class="supCuenta"></div>
 
         </div>
         <div class="zonaNavTablas">
@@ -24,16 +19,12 @@
                 <div class="busquedaAlumnos">
                     <div class="elementoBusqueda"><label class="lblBusqueda">Alumnos</label></div>
                     <div class="elementoBusqueda">
-                        <button class="btnBusqueda" id="btnpalabraClave" onclick="buscar();">    
-                            <p class="iconBusqueda"></p>
-                        </button>
-                        <input class="txtBoxBusqueda" id="palabraClave" type="text" placeholder="Buscar por Nombre, Email o Palabra clave">    
+                        <input class="txtBoxBusqueda" type="text" placeholder="Buscar por Nombre, Email o Palabra clave">
+                            <button class="btnBusqueda" onclick="buscar();">    
+                                <p class="iconBusqueda"></p>
+                            </button>
                     </div>
-                <div class="addAlumnos">
-                    <span class="iconAddAlumno"></span>
-                    <button class="btnAddAlumno" onclick="añadir();">Añadir Alumno    
-                    </button>
-                </div>
+                <div class="addAlumnos"></div>
             </div>
             <div class="tablas">
                 <table id="tablaAlumnos">

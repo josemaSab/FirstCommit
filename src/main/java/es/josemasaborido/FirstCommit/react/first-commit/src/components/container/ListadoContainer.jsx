@@ -5,16 +5,15 @@ import TablaComponent from '../pure/TablaComponent'
 
 function ListadoContainer(props) {
     return (
-        <div>
-            <NavListadoComponent></NavListadoComponent>
-            <TablaComponent></TablaComponent>
-            
+        <div className={props.clase}>
+            <NavListadoComponent clase='nav'></NavListadoComponent>
+            <TablaComponent clase='tabla'></TablaComponent> 
         </div>
     )
 }
 
 ListadoContainer.propTypes = {
-
+    clase: PropTypes.string,
 }
 
 export default ListadoContainer

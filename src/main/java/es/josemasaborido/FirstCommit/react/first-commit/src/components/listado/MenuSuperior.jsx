@@ -6,8 +6,8 @@ import TituloComponent from '../pure/TituloComponent'
 function MenuSuperior(props) {
     return (
         <div className={props.clase}>
-            <div><TituloComponent clase='titulo-nav' tituloH1='OpenBootcamp' tituloH2='| Alumnos'></TituloComponent></div>
-            <div><EtiquetaComponent clase='user-nav' descripcion='Josema'></EtiquetaComponent></div> 
+            <div className='izq-titulo'><TituloComponent clase='titulo-nav' tituloH1='OpenBootcamp' tituloH2='| Alumnos'></TituloComponent></div>
+            <div className='dcha-titulo'><EtiquetaComponent clase='user-nav' descripcion='Josema'></EtiquetaComponent></div> 
         </div>
     )
 }

@@ -1,0 +1,284 @@
+/* Importamos la fuente */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+:root{
+    --verde: #32d5a4;
+    --negro: #121625;
+    --blanco: #ffffff;
+    --gris: #a5a8b3;
+    --grisfondo: #f3f3f3;
+    --bordesgris: #E6E6EA;
+    --fondotxtbox: #F8F8F9;
+    --grisinput: #8C909C;
+
+}
+
+*{
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+//CONTENEDORES
+
+.contenedor-principal{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--grisfondo);
+}
+//MENU SUPERIOR
+.nav-superior{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 10px;
+
+}
+
+.izq-titulo{
+    display: flex;
+    width: 50%;
+
+}
+
+.titulo-nav{
+    display: flex;
+    margin-left: 25px;
+}
+
+h1.titulo-nav{
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--negro);
+}
+
+h2.titulo-nav{
+    font-size: 28px;
+    font-weight: 700;
+    margin-left: 5px;
+    color: var(--verde);
+}
+
+.dcha-titulo{
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    margin-right: 40px;
+    align-items: center;
+}
+.user-nav{
+    display: flex;
+    height: 40px;
+    width: 100px;
+    background-color: var(--blanco);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--negro);
+    border-radius: 91px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+
+
+//ZONA DE TABLA 
+.inferior-principal{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.listado-alumnos{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100vh;
+    padding-left: 100px;
+}
+
+.nav{
+    display: flex;
+    margin-bottom: 16px;
+    width: 100%;
+}
+.izquierda-nav{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.izquierda-nav label{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-right: 24px;
+}
+.izquierda-nav input{
+    font-size: 14;
+    font-weight: 500;
+    color: var(--grisinput);
+    background-color: var(--bordesgris);
+    border: none;
+    height: 40px;
+    width: 350px;
+    border-radius: 8px;
+    padding-right: 10px;
+    text-align: end;
+    
+}
+
+.izquierda-nav button{
+    width: 22px;
+    height: 22px;
+    background-image: url(../../public/images/busqueda.svg);
+    border: none;
+    background-repeat: no-repeat;
+    margin-left: -343px;
+    background-color: var(--bordesgris);
+}
+
+.derecha-nav{
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.derecha-nav a{
+    display: flex;
+    width: 170px;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--negro);
+    background-color: var(--blanco);
+    height: 40px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    margin-right: -160px;
+
+
+}
+
+.derecha-nav span{
+    display: flex;
+    background-image: url(../../public/images/iconomas.svg);
+    width: 20px;
+    height: 20px;
+    
+}
+
+.tabla{
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid var(--bordesgris);
+    
+}
+
+.tabla table{
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--blanco);
+    border: none;
+    
+}
+
+.tabla thead{
+    height: 40px;
+}
+
+.tabla th{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gris);
+    padding-left: 20px;
+    align-items: center;
+
+}
+
+.tabla button{
+
+    width: 16px;
+    height: 16px;
+    background-image: url(../../public/images/flechas.svg);
+    border: none;
+    background-color: var(--blanco);
+    background-repeat: no-repeat;
+    margin-left: 8px;
+    margin-top: 3px;
+}
+
+.tabla td{
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--negro);
+    padding-left: 10px;
+    border-top: 1px solid var(--bordesgris);
+}
+
+
+.tabla ul{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.tabla li{
+    display: flex;
+    text-decoration: none;
+    margin-right: 5px;
+    background-color: var(--verde);
+    color: var(--blanco);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 25px;
+    align-content: center;
+    align-items: center;
+    
+}
+//ZONA DE FILTROS
+.filtros{
+    display: flex;
+    width: 30%;
+    height: 100vh;
+    margin-top: 0px;
+}
+
+.filtros-listado{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco);
+    margin: auto;
+    margin-top: 0px;
+    padding: 18px 18px 18px 18px;
+    border-radius: 20px;
+}
+
+.titulo-filtro{
+    display: flex;
+}
+
+.titulo-filtro h3{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.titulo-filtro button{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../public/images/trash.svg);
+    background-color: var(--blanco);
+    border: none;
+   margin-left: 50px;
+
+}
