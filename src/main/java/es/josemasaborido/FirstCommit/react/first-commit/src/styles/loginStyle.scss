@@ -1,0 +1,192 @@
+/* Importamos la fuente */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+:root{
+    --verde: #32d5a4;
+    --negro: #121625;
+    --blanco: #ffffff;
+    --gris: #a5a8b3;
+    --grisfondo: #e5e5e5ef;
+    --bordesgris: #E6E6EA;
+    --fondotxtbox: #F8F8F9;
+}
+
+*{
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+//CONTENEDORES
+
+.contenedor-principal{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.titulo-form-container{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 100vh;
+}
+
+.contenedor-imagen{
+    display: flex;
+    width: 60vw;
+    height: 100vh;
+}
+
+.imagen-index{
+    width: auto;
+    height: auto;
+    max-width: 60vw;
+    max-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+}
+
+//ZONA TITULO FORM Y CREDITO (IZQUIERDA)
+
+// ?Zona de titulos
+
+div.titulo{
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+h1.titulo{
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--negro);
+    margin-right: 5px;
+}
+
+h2.titulo{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--verde);
+}
+
+// ? Zona de Formulario
+
+div.form-login{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin:auto;
+    margin-top: 10%;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.lbl-form{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.txt-form{
+    height: 40px;
+    border: 0px;
+    background-color: var(--fondotxtbox);
+    color: var(--gris);
+    min-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+
+div.txt-form{
+    width: 100%;
+}
+
+.check-lnk{
+    display: flex;
+    width: 100%;
+}
+div.check-form{
+    display: flex;
+    width: 30%;
+    align-items: center;
+}
+
+input.check-form{
+    width: 16px;
+    height: 16px;
+    outline-color: var(--gris);
+    margin-right: 10px;
+}
+
+label.check-form{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+div.lnk-form{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+a.lnk-form{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--verde);
+    margin-right: 20px;
+}
+
+div.btn-form{
+    display: flex;
+    width: 100%;
+    margin-top: 34px;
+}
+
+input.btn-form{
+    background-color: var(--verde);
+    color: var(--blanco);
+    font-size: 15px;
+    font-weight: 700;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+}
+
+// ? Zona de Creditos  
+
+div.creditos{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+    width: 80%;
+    margin: auto;
+    align-items: flex-start;
+}
+
+p.creditos{
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gris);
+}
+
+a.link-creditos{
+    margin-top: 0px;
+    color: var(--gris);
+    font-size: 12px;
+}
+
+
