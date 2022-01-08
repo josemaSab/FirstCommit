@@ -10,29 +10,31 @@ function FiltrosComponent(props) {
             </div>
             <div className='fila-filtros'>
                 <label> Etiquetas</label>
-                <input type='text' placeholder='Escribe para buscar' />
-                <datalist>
+                <input type='text' placeholder='Escribe para buscar' list='tags'/>
+                <datalist id='tags'>
                     <option>HTML+CSS</option>
+                    <option>REACT</option>
+                    <option>JAVA</option>
                 </datalist>
                 <div className='etiquetas-filtros'>
                     <ul>
-                        <li>HTML+CSS</li>
-                        <li>REACT</li>
-                        <li>JAVA</li>
+                        <li>HTML+CSS<button></button></li>
+                        <li>REACT<button></button></li>
+                        <li>JAVA<button></button></li>
                     </ul>
                 </div>
             </div>
             <div className='fila-filtros'>
                 <label> Pais</label>
-                <input type='text' placeholder='Escribe para buscar' />
-                <datalist>
+                <input type='text' placeholder='Escribe para buscar' list='pais' />
+                <datalist id='pais'>
                     <option>España</option>
                 </datalist>
             </div>
             <div className='fila-filtros'>
                 <label> Ciudad</label>
-                <input type='text' placeholder='Escribe para buscar' />
-                <datalist>
+                <input type='text' placeholder='Escribe para buscar' list='ciudad'/>
+                <datalist id='ciudad'>
                     <option>Cádiz</option>
                 </datalist>
             </div>
