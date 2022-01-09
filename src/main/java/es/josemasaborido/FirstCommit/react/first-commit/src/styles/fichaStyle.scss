@@ -1,0 +1,20 @@
+/* Importamos la fuente */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+:root{
+    --verde: #32d5a4;
+    --negro: #121625;
+    --blanco: #ffffff;
+    --gris: #a5a8b3;
+    --grisfondo: #f3f3f3;
+    --bordesgris: #E6E6EA;
+    --fondotxtbox: #F8F8F9;
+    --grisinput: #8C909C;
+
+}
+
+*{
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+}
