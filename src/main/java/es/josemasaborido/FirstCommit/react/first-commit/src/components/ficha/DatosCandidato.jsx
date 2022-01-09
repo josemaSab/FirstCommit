@@ -90,9 +90,9 @@ function DatosCandidato(props) {
                 </datalist>
             </div>
             <div className='etiquetas'>
-                <button className='eliminar'></button><EtiquetaComponent clase='tag-etiquetas' descripcion='HTMLS+CSS'></EtiquetaComponent>
-                <button className='eliminar'></button><EtiquetaComponent clase='tag-etiquetas' descripcion='JAVA'></EtiquetaComponent>
-                <button className='eliminar'></button><EtiquetaComponent clase='tag-etiquetas' descripcion='REACT'></EtiquetaComponent>
+                <EtiquetaComponent clase='tag-etiquetas' descripcion='HTMLS+CSS'></EtiquetaComponent><button className='eliminar'></button>
+                <EtiquetaComponent clase='tag-etiquetas' descripcion='JAVA'></EtiquetaComponent><button className='eliminar'></button>
+                <EtiquetaComponent clase='tag-etiquetas' descripcion='REACT'></EtiquetaComponent><button className='eliminar'></button>
             </div>
 
         </div>
