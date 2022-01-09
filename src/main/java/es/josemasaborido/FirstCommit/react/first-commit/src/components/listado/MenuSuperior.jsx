@@ -7,7 +7,7 @@ function MenuSuperior(props) {
     return (
         <div className={props.clase}>
             <div className='izq-titulo'><TituloComponent clase='titulo-nav' tituloH1='OpenBootcamp' tituloH2='| Alumnos'></TituloComponent></div>
-            <div className='dcha-titulo'><img/><EtiquetaComponent clase='user-nav' descripcion='Josema'></EtiquetaComponent></div> 
+            <div className='dcha-titulo'><img/><EtiquetaComponent clase='user-nav-listado' descripcion='Josema'></EtiquetaComponent></div> 
         </div>
     )
 }

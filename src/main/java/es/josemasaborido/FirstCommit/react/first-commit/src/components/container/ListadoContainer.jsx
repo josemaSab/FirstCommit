@@ -6,7 +6,7 @@ import TablaComponent from '../pure/TablaComponent'
 function ListadoContainer(props) {
     return (
         <div className={props.clase}>
-            <NavListadoComponent clase='nav'></NavListadoComponent>
+            <NavListadoComponent clase='nav-listado'></NavListadoComponent>
             <TablaComponent clase='tabla'></TablaComponent> 
         </div>
     )

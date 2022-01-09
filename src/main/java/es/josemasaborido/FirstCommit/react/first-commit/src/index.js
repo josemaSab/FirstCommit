@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import './styles/loginStyle.scss'
+import './styles/listadoStyle.scss'
+import './styles/fichaStyle.scss'
+import App from './App'
 // ? Importamos bootstrap a nuestro proyecto
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 // ! Debe ir antes que la hoja de estilo que viene por defecto para que no se pise
 
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>

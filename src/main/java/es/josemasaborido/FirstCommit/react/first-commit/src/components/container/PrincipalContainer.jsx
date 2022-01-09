@@ -4,7 +4,7 @@ import TituloFormContainer from './TituloFormContainer'
 
 function PrincipalContainer() {
     return (
-        <div className='contenedor-principal'>
+        <div className='contenedor-principal-login'>
             <TituloFormContainer></TituloFormContainer>
             <ImagenContainer></ImagenContainer>
         </div>
