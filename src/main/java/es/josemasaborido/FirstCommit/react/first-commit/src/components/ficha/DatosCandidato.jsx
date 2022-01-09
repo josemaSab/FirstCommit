@@ -9,12 +9,15 @@ function DatosCandidato(props) {
             <div className='titulo-datos'>
                 <div className='foto-titulo'>
                     <img src='/images/Josema.png' />
-                    <EtiquetaComponent clase='nombre-foto-titulo' descripcion='Josema Saborido'></EtiquetaComponent>
+
                 </div>
                 <div className='ciudad-pais'>
-                    <span></span>
-                    <EtiquetaComponent clase='label-ciudad' descripcion='Cádiz'></EtiquetaComponent>
-                    <EtiquetaComponent clase='label-ciudad' descripcion='| España'></EtiquetaComponent>
+                    <EtiquetaComponent clase='nombre-foto-titulo' descripcion='Josema Saborido'></EtiquetaComponent>
+                    <div className='labels-ciudad-pais'>
+                        <span></span>
+                        <EtiquetaComponent clase='label-ciudad' descripcion='Cádiz'></EtiquetaComponent>
+                        <EtiquetaComponent clase='label-ciudad' descripcion='| España'></EtiquetaComponent>
+                    </div>
                 </div>
             </div>
             <div className='fila-datos'>
@@ -22,11 +25,11 @@ function DatosCandidato(props) {
                 <CajaTextoComponent clase='text-datos' tipo='text' descripcion='Josema Saborido' name='nombre'></CajaTextoComponent>
             </div>
             <div className='fila-datos-mitad'>
-                <div className='fila-datos'>
+                <div className='mitad'>
                     <EtiquetaComponent clase='label-datos' descripcion='Teléfono'></EtiquetaComponent>
                     <CajaTextoComponent clase='text-datos' tipo='text' descripcion='666888777' name='telefono'></CajaTextoComponent>
                 </div>
-                <div className='fila-datos'>
+                <div className='mitad'>
                     <EtiquetaComponent clase='label-datos' descripcion='Email'></EtiquetaComponent>
                     <CajaTextoComponent clase='text-datos' tipo='text' descripcion='josema@gmail.com' name='email'></CajaTextoComponent>
                 </div>

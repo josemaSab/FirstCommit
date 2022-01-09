@@ -18,3 +18,228 @@
     margin: 0;
     padding: 0;
 }
+
+
+//CONTENEDORES
+.contenedor-principal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--grisfondo);
+    background-size: cover;
+}
+
+.contenedor-ficha{
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+}
+
+//MENU NAVEGACION SUPERIOR
+
+.nav-sup{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.izq-nav{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.izq-nav span{
+    width: 20px;
+    height: 20px;
+    background-image: url(../../public/images/volver.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.link-nav-sup{
+    display: flex;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-left: 10px;
+}
+
+.dcha-nav{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    margin-right: 40px;
+    justify-content: flex-end;
+}
+
+.dcha-nav img{
+    display: flex;
+    position: relative;
+    height: auto;
+    width: auto;
+    min-width: 25px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+    background: url(../../public/images/Josema.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    margin-right: -25px;
+    
+}
+.user-nav{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 10px;
+    color: var(--negro);
+    background-color: var(--blanco);
+    border-radius: 20px;
+}
+
+//ZONA DE DATOS
+.datos-candidato{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: var(--blanco);
+    border: 1px solid var(--bordesgris);
+    border-radius: 20px;
+}
+
+.titulo-datos{
+    display: flex;
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+}
+
+.foto-titulo{
+    display: flex;
+}
+
+.foto-titulo img{
+    display: flex;
+    width: auto;
+    height: auto;
+    max-height: 90px;
+    min-width: 50px;
+    border: 5px solid var(--bordesgris);
+    border-radius: 8px;
+    margin-left: 25px;;
+}
+
+.nombre-foto-titulo{
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 10px;
+}
+
+.labels-ciudad-pais{
+    display: flex;
+}
+.labels-ciudad-pais span{
+    height: auto;
+    width: auto;
+    max-height: 20px;
+    min-width: 20px;
+    background-image: url(../../public/images/location.svg);
+    background-repeat: no-repeat;
+    margin-left: 15px;
+}
+
+.fila-datos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 15px 0px 15px;
+}
+
+.label-ciudad{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gris);
+    margin-right: 5px;
+
+}
+.label-datos{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-bottom: 10px;
+}
+
+.text-datos{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    color: var(--negro);
+    background-color: var(--fondotxtbox);
+    border: none;
+    border-radius: 8px;
+    padding-left: 5px;
+
+}
+
+.fila-datos-mitad{
+    display: flex;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+
+.mitad{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 5px;
+}
+
+.fila-datos input[type=text]{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    color: var(--negro);
+    background-color: var(--fondotxtbox);
+    border: none;
+    border-radius: 8px;
+    padding-left: 5px;
+}
+
+.botones-cv{
+    display: flex;
+    width: 100%;
+    margin-left: 15px;
+}
+
+.carga-cv{
+    display: flex;
+    width: 160px;
+    height: 40px;
+    background-color: var(--gris);
+    color: var(--blanco);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 8px;
+
+}
+
+//ZONA DE VISOR
+
+.visor-pdf{
+    display: flex;
+    width: 65%;
+
+}
