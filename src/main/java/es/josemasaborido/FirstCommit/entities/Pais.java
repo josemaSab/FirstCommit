@@ -1,7 +1,9 @@
 package es.josemasaborido.FirstCommit.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 /**
  * Proyecto First Commit
@@ -18,6 +20,10 @@ public class Pais {
     //ATRIBUTOS
     private Long idPais;
     private String pais;
+
+    //mappedBy hace referencia al nombre del atributo Pais dado en la clase Ciudad
+    @OneToMany(mappedBy = "pais")
+    Set<Ciudad> ciudades;
 
     //CONSTRUCTORES
 
