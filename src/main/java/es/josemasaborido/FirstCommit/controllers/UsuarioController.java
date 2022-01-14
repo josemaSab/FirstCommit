@@ -89,6 +89,7 @@ public class UsuarioController {
                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
             }
         }
+        //TODO hay que hashear la contraseña antes de guardar el usuario en la base de datos
         return new ResponseEntity<>(genericService.save(usuario), HttpStatus.CREATED);
     }
 

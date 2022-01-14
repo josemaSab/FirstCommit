@@ -1,8 +1,6 @@
 package es.josemasaborido.FirstCommit.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 /**
@@ -18,6 +16,8 @@ import java.util.Set;
 public class Pais {
 
     //ATRIBUTOS
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPais;
     private String pais;
 
