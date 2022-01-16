@@ -3,7 +3,6 @@ package es.josemasaborido.FirstCommit.repositories;
 import es.josemasaborido.FirstCommit.entities.Pais;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 /**
  * Proyecto First Commit
  * Interface que hereda de JpaRepository para implementar los metodos CRUD

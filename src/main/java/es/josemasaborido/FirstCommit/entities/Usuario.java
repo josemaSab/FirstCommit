@@ -24,22 +24,25 @@ public class Usuario {
     private String email;
 
     //mappedBy hace referencia al nombre del atributo Usuario dado en la clase Alumno
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private List<Alumno> alumnos;
 
 
     //CONSTRUCTORES
 
     /**
+     * Constructor sin parametros
+     */
+    public Usuario(){}
+
+    /**
      * Consutructor con todos los parametros
      *
-     * @param idUsuario     id del usuario es clave primaria
      * @param nombreUsuario nombre del usuario
      * @param password      password del usuario
      * @param email         del usuario
      */
-    public Usuario(Long idUsuario, String nombreUsuario, String password, String email) {
-        this.idUsuario = idUsuario;
+    public Usuario(String nombreUsuario, String password, String email) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.email = email;

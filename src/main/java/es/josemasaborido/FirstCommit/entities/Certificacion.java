@@ -37,13 +37,16 @@ public class Certificacion {
     //CONSTRUCTORES
 
     /**
+     * Constructor sin parametros
+     */
+    public Certificacion(){}
+
+    /**
      * Constructor con parametros
      *
-     * @param idCertificacion id de la certificacion
      * @param certificacion   nombre de la certificacion
      */
-    public Certificacion(Long idCertificacion, String certificacion) {
-        this.idCertificacion = idCertificacion;
+    public Certificacion(String certificacion) {
         this.certificacion = certificacion;
         //Inicializamos el Set al instanciar la certificación.
         alumnosCertificados = new HashSet<>();

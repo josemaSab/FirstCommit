@@ -3,8 +3,8 @@ package es.josemasaborido.FirstCommit.controllers;
 import es.josemasaborido.FirstCommit.entities.Usuario;
 import es.josemasaborido.FirstCommit.models.Autenticacion;
 import es.josemasaborido.FirstCommit.services.GenericService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import es.josemasaborido.FirstCommit.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,19 @@ public class LoginController {
 
     //ATRIBUTOS
     private static final String API_BASE = "/api/v1";
-    private GenericService<Usuario, Long> genericService;
+    @Autowired
+    private UsuarioService usuarioService;
+
+    //CONTRUCTORES
+
+    /**
+     * Consutructor con parametros
+     * @param usuarioService sercicio de usuario
+     */
+    public LoginController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
 
     //METODOS
 
@@ -34,9 +46,8 @@ public class LoginController {
      * no existe.
      */
     @PostMapping(API_BASE + "/login")
-    @ApiOperation("Comprueba que el usuario y contraseña sean correctos para acceder al sistema")
-    public ResponseEntity<HttpStatus> login(@ApiParam("Datos de autenticacion")@RequestBody Autenticacion autenticacion){
-        List<Usuario> listaUsuarios = genericService.findAll();
+    public ResponseEntity<HttpStatus> login(@RequestBody Autenticacion autenticacion){
+        List<Usuario> listaUsuarios = usuarioService.findAll();
         for(Usuario u: listaUsuarios){
             if(u.getNombreUsuario().equals(autenticacion.getNombreUsuario())){
                 //TODO habra que hasear la contraseña para hacer la comprobacion con la base de datos
@@ -50,4 +61,12 @@ public class LoginController {
     }
 
     //GETTER Y SETTER
+
+    public UsuarioService getUsuarioService() {
+        return usuarioService;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 }

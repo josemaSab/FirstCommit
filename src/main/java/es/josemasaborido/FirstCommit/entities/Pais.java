@@ -28,13 +28,16 @@ public class Pais {
     //CONSTRUCTORES
 
     /**
+     * Constructor sin parametros
+     */
+    public Pais(){}
+
+    /**
      * Constructor con parametros
      *
-     * @param idPais id del pais
      * @param pais   nombre del pais
      */
-    public Pais(Long idPais, String pais) {
-        this.idPais = idPais;
+    public Pais(String pais) {
         this.pais = pais;
     }
 

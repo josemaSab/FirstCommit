@@ -1,5 +1,6 @@
 package es.josemasaborido.FirstCommit.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.josemasaborido.FirstCommit.enums.Presencialidad;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -29,14 +30,15 @@ public class Alumno {
     private String foto;
     private String curriculum;
 
+    @JsonIgnore
     //Relacion muchos a uno con la tabla usuarios
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     //idUsuario_FK es el campo que se crea para relacionar con la tabla de usuarios
     @JoinColumn(name = "idUsuario_FK")
     private Usuario usuario;
 
-
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     //idCiudad_FK es el campo que se crea para relacionar con la tabla de ciudad
     @JoinColumn(name = "idCiudad_FK")
     private Ciudad ciudad;
@@ -51,9 +53,13 @@ public class Alumno {
     //CONTRUCTORES
 
     /**
+     * Constructor sin parametros
+     */
+    public Alumno(){}
+
+    /**
      * Constructor con parametros
      *
-     * @param idAlumno        id del alumno, es clave primaria
      * @param nombreAlumno    nombre del alumno
      * @param apellidosAlumno apellidos del alumno
      * @param emailAlumno     email del alumno
@@ -62,10 +68,10 @@ public class Alumno {
      * @param traslado        si necesita traslado
      * @param foto            direccion del archivo de la  fotografia
      * @param curriculum      dirección del archivo del curriculum
+     * @param usuario         usuario asignado
      */
-    public Alumno(Long idAlumno, String nombreAlumno, String apellidosAlumno, String emailAlumno, String telefono,
-                  Presencialidad presencialidad, Boolean traslado, String foto, String curriculum) {
-        this.idAlumno = idAlumno;
+    public Alumno(String nombreAlumno, String apellidosAlumno, String emailAlumno, String telefono,
+                  Presencialidad presencialidad, Boolean traslado, String foto, String curriculum, Usuario usuario) {
         this.nombreAlumno = nombreAlumno;
         this.apellidosAlumno = apellidosAlumno;
         this.emailAlumno = emailAlumno;
@@ -74,8 +80,10 @@ public class Alumno {
         this.traslado = traslado;
         this.foto = foto;
         this.curriculum = curriculum;
+        this.usuario = usuario;
         //Inicializamos el set al instanciar el alumno
         certificaciones = new HashSet<>();
+
     }
 
     //GETTER Y SETTER

@@ -23,7 +23,7 @@ public class Ciudad {
     private String ciudad;
 
     //mappedBy hace referencia al nombre del atributo ciudad dado en la clase Alumno
-    @OneToMany(mappedBy = "ciudad")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudad")
     private List<Alumno> alumnosCiudad;
 
 
@@ -35,13 +35,16 @@ public class Ciudad {
     //CONSTRUCTORES
 
     /**
+     * Constructor sin parametros
+     */
+    public Ciudad(){}
+
+    /**
      * Consturctor con parametros
      *
-     * @param idCiudad id de la ciudad
      * @param ciudad   nombre de la ciudad
      */
-    public Ciudad(Long idCiudad, String ciudad) {
-        this.idCiudad = idCiudad;
+    public Ciudad(String ciudad) {
         this.ciudad = ciudad;
         //Se inicializa el List al instanciar la ciudad
         this.alumnosCiudad = new ArrayList<>();

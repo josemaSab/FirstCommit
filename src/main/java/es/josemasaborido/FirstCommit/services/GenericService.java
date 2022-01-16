@@ -1,6 +1,6 @@
 package es.josemasaborido.FirstCommit.services;
 
-import es.josemasaborido.FirstCommit.repositories.GenericRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -13,77 +13,21 @@ import java.util.List;
  * @author josema
  * @version 1.0
  */
-@Service
-public abstract class GenericService <T, ID extends Serializable> {
 
-    //ATRIBUTOS
+public interface GenericService <T, ID extends Serializable>{
 
-    private GenericRepository<T, ID> genericRepository;
+    T findById(ID id);
 
-    //METODOS
+    List<T> findAll();
 
-    /**
-     * Metodo que busca una entidad por el id
-     * @param id del objeto  entidad a buscar
-     * @return el objeto de la entidad buscada
-     */
-    public T findById(ID id){
-        return (T) genericRepository.findById(id);
-    }
+    T save(T entity);
 
-    /**
-     * Metodo que busca todos los objetos de una entidad
-     * @return una lista de objetos de la entidad
-     */
-    public List<T> findAll(){
-        return genericRepository.findAll();
-    }
+   T update(T entity);
 
-    /**
-     * Metodo que guarda en persistencia un objeto entidad
-     * @param entity objeto entidad pasada por parametro
-     * @return objeto entidad
-     */
-    public T save(T entity){
-        return genericRepository.save(entity);
-    }
+    boolean deleteById(ID id);
 
-    /**
-     * Metodo que actualiza en persistencia un objeto entidad
-     * @param entity objeto entidad pasada por parametro
-     * @return objeto entidad
-     */
-    public T update(T entity){
-        return genericRepository.save(entity);
-    }
+    void deleteAll();
 
-    /**
-     * Metodo que elimina de persistencia un objeto entidad
-     * @param id id del objeto entidad pasado por parametro
-     */
-    public void deleteById(ID id){
-        genericRepository.deleteById(id);
-    }
+    boolean existByid(ID id);
 
-    /**
-     * Metodo que elimina todos los objetos de la entidad en persistencia
-     */
-    public void deleteAll(){
-        genericRepository.deleteAll();
-    }
-
-    public boolean existByid(ID id){
-        return genericRepository.existsById(id);
-    }
-
-    //GETTER Y SETTER
-
-
-    public GenericRepository<T, ID> getGenericRepository() {
-        return genericRepository;
-    }
-
-    public void setGenericRepository(GenericRepository<T, ID> genericRepository) {
-        this.genericRepository = genericRepository;
-    }
 }

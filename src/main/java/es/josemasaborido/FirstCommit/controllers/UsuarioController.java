@@ -1,9 +1,8 @@
 package es.josemasaborido.FirstCommit.controllers;
-
 import es.josemasaborido.FirstCommit.entities.Usuario;
 import es.josemasaborido.FirstCommit.services.GenericService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import es.josemasaborido.FirstCommit.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +22,19 @@ public class UsuarioController {
     //ATRIBUTOS
 
     private static final String API_BASE = "/api/v1";
-    private final GenericService<Usuario, Long> genericService;
+    @Autowired
+    private UsuarioService usuarioService;
 
     //CONSTRUCTORES
 
-    public UsuarioController(GenericService<Usuario, Long> genericService) {
-        this.genericService = genericService;
+    /**
+     * Consutrctor con parametros
+     * @param usuarioService sercivio de usuario
+     */
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
+
 
     //METODOS
 
@@ -38,9 +43,8 @@ public class UsuarioController {
      * @return ResponseEntity con la lista de usuarios
      */
     @GetMapping(API_BASE + "/usuarios")
-    @ApiOperation("Busca todos los usuarios en la base de datos")
     public ResponseEntity<List<Usuario>> findAll(){
-        return new ResponseEntity<>(genericService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(usuarioService.findAll(), HttpStatus.OK);
     }
 
     /**
@@ -49,10 +53,9 @@ public class UsuarioController {
      * @return ResponseEntity con el ususiario  y status OK o null y status NO CONTENT si no lo encuentra
      */
     @GetMapping(API_BASE + "/usuarios/{id}")
-    @ApiOperation("Busca un usuario por su id pasada por parametro")
-    public ResponseEntity<Usuario> findById(@ApiParam("Clave primaria") @PathVariable("id") Long id){
-        if(genericService.existByid(id)){
-            return new ResponseEntity<>(genericService.findById(id), HttpStatus.OK);
+    public ResponseEntity<Usuario> findById(@PathVariable("id") Long id){
+        if(usuarioService.findById(id) != null){
+            return new ResponseEntity<>(usuarioService.findById(id), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
     }
@@ -65,11 +68,9 @@ public class UsuarioController {
      * podido encontrat
      */
     @PutMapping(API_BASE + "/usuarios/{id}")
-    @ApiOperation("Actualiza un usuario por su id")
-    public ResponseEntity<Usuario> update(@ApiParam("Clave primaria") @PathVariable("id") Long id,
-                                          @ApiParam("Atributos de usuario pasados por Json en el body") @RequestBody Usuario usuario){
-        if(genericService.existByid(id)){
-            return new ResponseEntity<>(genericService.save(usuario), HttpStatus.CREATED);
+    public ResponseEntity<Usuario> update(@PathVariable("id") Long id, @RequestBody Usuario usuario){
+        if(usuarioService.existByid(id)){
+            return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
@@ -81,16 +82,8 @@ public class UsuarioController {
      * en persistencia
      */
     @PostMapping(API_BASE + "/usuarios")
-    @ApiOperation("Crea un usuario en la base de datos")
-    public ResponseEntity<Usuario> save(@ApiParam("Atributos pasados por Json en el body") @RequestBody Usuario usuario){
-        List<Usuario> listaUsuarios = genericService.findAll();
-        for(Usuario u: listaUsuarios){
-            if(usuario.getNombreUsuario().equals(u.getNombreUsuario())){
-                return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-            }
-        }
-        //TODO hay que hashear la contraseña antes de guardar el usuario en la base de datos
-        return new ResponseEntity<>(genericService.save(usuario), HttpStatus.CREATED);
+    public ResponseEntity<Usuario> save(@RequestBody Usuario usuario){
+            return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
     }
 
     /**
@@ -98,11 +91,10 @@ public class UsuarioController {
      * @return ResponseEntity con Status OK si se ha llevado a cabo correctamente y INTERNAL SERVER ERROR si hubo algun problema
      */
     @DeleteMapping(API_BASE + "/usuarios")
-    @ApiOperation("Elimina todos los usuarios de la base de datos")
     public ResponseEntity<HttpStatus> deleteAll(){
         //Intentaremos realizar el borrado de todos los usuarios de la base de datos
         try{
-            genericService.deleteAll();
+            usuarioService.deleteAll();
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e){
             System.err.println(e.getMessage());
@@ -117,11 +109,11 @@ public class UsuarioController {
      * borrado y Status NOT FOUND si el usuario no existe en la base de datos
      */
     @DeleteMapping(API_BASE + "/usuarios/{id}")
-    @ApiOperation("Elimina un usuarios por su id")
-    public ResponseEntity<HttpStatus> deleteById(@ApiParam("Clave primaria") @PathVariable("id") Long id){
-        if(genericService.existByid(id)){
+
+    public ResponseEntity<HttpStatus> deleteById(@PathVariable("id") Long id){
+        if(usuarioService.existByid(id)){
             try{
-                genericService.deleteById(id);
+                usuarioService.deleteById(id);
                 return new ResponseEntity<>(HttpStatus.OK);
             }catch(Exception e){
                 System.err.println(e.getMessage());
@@ -134,6 +126,6 @@ public class UsuarioController {
     //GETTER Y SETTER
 
     public GenericService<Usuario, Long> getGenericService() {
-        return genericService;
+        return usuarioService;
     }
 }
