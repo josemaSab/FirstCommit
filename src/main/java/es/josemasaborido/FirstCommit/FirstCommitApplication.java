@@ -41,17 +41,16 @@ public class FirstCommitApplication {
 		//Creamos las ciudades y le asignamos el pais
 
 		Ciudad cadiz = new Ciudad("Cadiz");
-		cadiz.setPais(spain);
+
 		Ciudad madrid = new Ciudad("Madrid");
-		madrid.setPais(spain);
+
 		Ciudad barcelona = new Ciudad("Barcelona");
-		barcelona.setPais(spain);
+
 
 		Ciudad paris = new Ciudad("Paris");
-		paris.setPais(francia);
+
 
 		Ciudad lisboa = new Ciudad("Lisboa");
-		lisboa.setPais(portugal);
 
 		//Guardamos las ciudades
 
@@ -61,6 +60,19 @@ public class FirstCommitApplication {
 		ciudadService.save(paris);
 		ciudadService.save(lisboa);
 
+		cadiz.setPais(spain);
+		madrid.setPais(spain);
+		barcelona.setPais(spain);
+		paris.setPais(francia);
+		lisboa.setPais(portugal);
+
+		ciudadService.update(cadiz);
+		ciudadService.update(madrid);
+		ciudadService.update(barcelona);
+		ciudadService.update(paris);
+		ciudadService.update(lisboa);
+
+
 		//Creamos las certificaciones
 
 		Certificacion java = new Certificacion("JAVA");
@@ -68,11 +80,6 @@ public class FirstCommitApplication {
 		Certificacion react = new Certificacion("REACT");
 		Certificacion spring = new Certificacion("SPRING");
 
-		//Guardamos las certificaciones
-		certificacionService.save(java);
-		certificacionService.save(htmlCss);
-		certificacionService.save(react);
-		certificacionService.save(spring);
 
 		//Creamos los usuarios
 
@@ -87,35 +94,30 @@ public class FirstCommitApplication {
 				"j.saborido@gmail.com", "678555555", Presencialidad.REMOTO, false, null,
 				null, usuario1);
 		alumno1.setCiudad(cadiz);
-		Set<Certificacion> certificacionesAlumno1 = new HashSet<>();
-		certificacionesAlumno1.add(java);
-		certificacionesAlumno1.add(htmlCss);
-		certificacionesAlumno1.add(spring);
-		alumno1.setCertificaciones(certificacionesAlumno1);
+
 
 		Alumno alumno2 = new Alumno("Ana", "Romero", "a.romero@gmail.com",
 				"655225458", Presencialidad.HIBRIDO, true, null, null, usuario1);
 		alumno2.setCiudad(madrid);
-		Set<Certificacion> certificacionesAlumno2 = new HashSet<>();
-		certificacionesAlumno1.add(htmlCss);
-		certificacionesAlumno1.add(react);
-		alumno2.setCertificaciones(certificacionesAlumno2);
+
 
 		Alumno alumno3 = new Alumno("Piere", "Devenú", "p.devenu@gmail.com",
 				"477455845", Presencialidad.PRESENCIAL, true, null, null, usuario1);
-		alumno2.setCiudad(paris);
-		Set<Certificacion> certificacionesAlumno3 = new HashSet<>();
-		certificacionesAlumno1.add(java);
-		certificacionesAlumno1.add(htmlCss);
-		certificacionesAlumno1.add(react);
-		alumno3.setCertificaciones(certificacionesAlumno3);
-
+		alumno3.setCiudad(paris);
 
 		//Guardamos los alumnos
 		alumnoService.save(alumno1);
 		alumnoService.save(alumno2);
 		alumnoService.save(alumno3);
 
+		//Guardamos las certificaciones
+		certificacionService.save(java);
+		certificacionService.save(htmlCss);
+		certificacionService.save(react);
+		certificacionService.save(spring);
+
+		java.getAlumnosCertificados().add(alumno1);
+		certificacionService.update(java);
 
 
 	}

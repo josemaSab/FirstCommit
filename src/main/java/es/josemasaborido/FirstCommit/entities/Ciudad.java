@@ -1,6 +1,9 @@
 package es.josemasaborido.FirstCommit.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +17,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "ciudades")
-public class Ciudad {
+public class Ciudad implements Serializable {
 
     //ATRIBUTOS
     @Id
@@ -24,10 +27,9 @@ public class Ciudad {
 
     //mappedBy hace referencia al nombre del atributo ciudad dado en la clase Alumno
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudad")
-    private List<Alumno> alumnosCiudad;
-
-
-    @ManyToOne
+    private List<Alumno> alumnosCiudad = new ArrayList<>();
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     //idPais_FK es el campo que se crea para relacionar con la tabla de pais
     @JoinColumn(name = "idPais_FK")
     private Pais pais;
@@ -46,8 +48,6 @@ public class Ciudad {
      */
     public Ciudad(String ciudad) {
         this.ciudad = ciudad;
-        //Se inicializa el List al instanciar la ciudad
-        this.alumnosCiudad = new ArrayList<>();
     }
 
 

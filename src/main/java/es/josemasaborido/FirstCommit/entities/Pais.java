@@ -1,6 +1,10 @@
 package es.josemasaborido.FirstCommit.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,7 +17,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "paises")
-public class Pais {
+public class Pais implements Serializable {
 
     //ATRIBUTOS
     @Id
@@ -22,8 +26,8 @@ public class Pais {
     private String pais;
 
     //mappedBy hace referencia al nombre del atributo Pais dado en la clase Ciudad
-    @OneToMany(mappedBy = "pais")
-    Set<Ciudad> ciudades;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pais")
+    private Set<Ciudad> ciudades = new HashSet<>();
 
     //CONSTRUCTORES
 
@@ -58,5 +62,13 @@ public class Pais {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public Set<Ciudad> getCiudades() {
+        return ciudades;
+    }
+
+    public void setCiudades(Set<Ciudad> ciudades) {
+        this.ciudades = ciudades;
     }
 }

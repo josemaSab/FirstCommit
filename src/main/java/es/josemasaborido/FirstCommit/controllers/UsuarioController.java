@@ -1,6 +1,5 @@
 package es.josemasaborido.FirstCommit.controllers;
 import es.josemasaborido.FirstCommit.entities.Usuario;
-import es.josemasaborido.FirstCommit.services.GenericService;
 import es.josemasaborido.FirstCommit.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -125,7 +124,12 @@ public class UsuarioController {
 
     //GETTER Y SETTER
 
-    public GenericService<Usuario, Long> getGenericService() {
+
+    public UsuarioService getUsuarioService() {
         return usuarioService;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 }

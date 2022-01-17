@@ -1,6 +1,7 @@
 package es.josemasaborido.FirstCommit.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario implements Serializable {
 
     //ATRIBUTOS
     @Id
@@ -25,7 +26,7 @@ public class Usuario {
 
     //mappedBy hace referencia al nombre del atributo Usuario dado en la clase Alumno
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-    private List<Alumno> alumnos;
+    private List<Alumno> alumnos = new ArrayList<>();
 
 
     //CONSTRUCTORES
@@ -46,8 +47,6 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.email = email;
-        //inicializamos el Listde la relacion @OnetoMany
-        alumnos = new ArrayList<>();
     }
 
 

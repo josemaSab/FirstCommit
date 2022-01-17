@@ -1,6 +1,11 @@
 package es.josemasaborido.FirstCommit.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,14 +18,14 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "certificaciones")
-public class Certificacion {
+public class Certificacion implements Serializable {
 
     //ATRIBUTOS
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCertificacion;
     private String certificacion;
-
+    @JsonBackReference
     //La entidad Certificacion es la entidad padre en la relacion ManytoMany
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -32,7 +37,7 @@ public class Certificacion {
             inverseJoinColumns = {@JoinColumn(name = "idAlum_FK")}
     )
     //Uso set para que no se dupliquen los alumnos
-            private Set<Alumno> alumnosCertificados;
+            private Set<Alumno> alumnosCertificados = new HashSet<>();
 
     //CONSTRUCTORES
 
@@ -48,8 +53,6 @@ public class Certificacion {
      */
     public Certificacion(String certificacion) {
         this.certificacion = certificacion;
-        //Inicializamos el Set al instanciar la certificación.
-        alumnosCertificados = new HashSet<>();
     }
 
     //GETTER Y SETTER

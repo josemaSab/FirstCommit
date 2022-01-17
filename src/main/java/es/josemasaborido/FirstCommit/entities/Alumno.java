@@ -1,8 +1,11 @@
 package es.josemasaborido.FirstCommit.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import es.josemasaborido.FirstCommit.enums.Presencialidad;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +18,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "alumnos")
-public class Alumno {
+public class Alumno implements Serializable {
 
     //ATRIBUTOS
     @Id
@@ -43,7 +46,8 @@ public class Alumno {
     @JoinColumn(name = "idCiudad_FK")
     private Ciudad ciudad;
 
-
+    @JsonManagedReference
+    @JsonIgnore
     //mappedBy hace referencia al nombre del atributo asignado en el Set de la entidad Certificaciones
     //Que es la que se relaciona con esta entidad
     @ManyToMany(mappedBy = "alumnosCertificados")
