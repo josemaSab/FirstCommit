@@ -3,6 +3,8 @@
 Proyecto First Commit de OpenBootcamp
 Este repositorio contendrá la parte de backend y forntend
 
+## Las direcciones de despliegue del proyecto estan inactivas por el momento hasta que no se termine el proyecto
+
 ## PARTE FRONT 
 
 ### HTML + CSS + JS
